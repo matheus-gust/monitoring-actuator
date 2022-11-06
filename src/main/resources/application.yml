@@ -1,16 +1,17 @@
 spring:
   datasource:
-    driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/actuator_database
-    username: root
-    password: tiro@123
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/actuator
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
 
 management:
   endpoints:
     web:
       base-path: /actuator
       exposure:
-        include: "*"
+        include: "health,httptrace"
 
   endpoint:
     health:

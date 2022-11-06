@@ -20,8 +20,8 @@ public class DatabaseHealth implements HealthIndicator {
     JdbcTemplate template;
 
     Map<String, String> datails = new HashMap(Map.of(
-            "Database", "MySql",
-            "Version", "8.0.3"
+            "Database", "Postgres",
+            "Version", "15.0.0"
     ));
 
     @Override
@@ -35,8 +35,8 @@ public class DatabaseHealth implements HealthIndicator {
     }
 
     private boolean isDatabaseUp() {
-        List<Object> results = template.query("select 1 from dual",
+        List<Object> results = template.query("SELECT datname FROM pg_catalog.pg_database WHERE oid = 16388",
                 new SingleColumnRowMapper<>());
-        return (results.size() != 1) ? false : true;
+        return (results.size() > 0) ? true : false;
     }
 }
