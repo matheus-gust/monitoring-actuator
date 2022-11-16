@@ -1,16 +1,18 @@
 package com.actuator.estudoactuator.estudoactuator.resources;
 
 import lombok.Data;
-import lombok.Value;
 
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 
 @Data
 public class Cliente {
 
+    @NotNull
     private String nome;
+    @NotNull
     private String endereco;
+    @NotNull
     private BigDecimal saldo;
 
     public Cliente() {}

@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.math.BigDecimal;
 
 @RestController
@@ -16,7 +17,7 @@ public class ClienteResource {
     }
 
     @PostMapping
-    public ResponseEntity<Cliente> insereCliente(@RequestBody Cliente cliente) {
+    public ResponseEntity<Cliente> insereCliente(@Valid @RequestBody Cliente cliente) {
         Cliente client = cliente;
         return ResponseEntity.status(HttpStatus.CREATED).body(client);
     }

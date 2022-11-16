@@ -5,8 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.UUID;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,4 +14,7 @@ public class HttpRequestMessage {
     private String body;
     private String method;
     private String sender;
+    private String requestedUrl;
+    private String message;
+    private String requestDateTime;
 }
