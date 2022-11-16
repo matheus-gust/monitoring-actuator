@@ -1,10 +1,15 @@
 spring:
   datasource:
     platform: postgres
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://localhost:5432/monitoring-actuator
     username: postgres
     password: postgres
     driverClassName: org.postgresql.Driver
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
 management:
   endpoints:
@@ -16,3 +21,9 @@ management:
   endpoint:
     health:
       show-details: "ALWAYS"
+
+queue:
+  name: httprequest
+
+server:
+  port: 8081
