@@ -1,7 +1,7 @@
 spring:
   datasource:
     platform: postgres
-    url: jdbc:postgresql://localhost:5432/monitoring-actuator
+    url: jdbc:postgresql://postgres:5432/monitoring-actuator
     username: postgres
     password: postgres
     driverClassName: org.postgresql.Driver
@@ -14,6 +14,9 @@ spring:
 management:
   endpoints:
     web:
+      cors:
+        allowed-origins: http://127.0.0.1:4200
+        allowed-methods: GET
       base-path: /actuator
       exposure:
         include: "health,httptrace"
@@ -21,7 +24,6 @@ management:
   endpoint:
     health:
       show-details: "ALWAYS"
-
 queue:
   name: httprequest
 
